@@ -33,7 +33,7 @@ const publicUrl = process.env.PUBLIC_URL || 'https://map-test-playground.onrende
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB setup
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://mduduzindlovu02:oSvXSgXEkH5qI8wM@map-test-play.h2lzb.mongodb.net/?retryWrites=true&w=majority&appName=map-test-play';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://mduduzindlovu02:oSvXSgXEkH5qI8wM@map-test-play.h2lzb.mongodb.net/?';
 mongoose.connect(mongoURI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
