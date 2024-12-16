@@ -293,6 +293,7 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
 // Handle form submission for creating a post
 document.getElementById('postForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log("This submit button was pressed")
 
     const formData = new FormData(e.target);
     const name = formData.get('name');
