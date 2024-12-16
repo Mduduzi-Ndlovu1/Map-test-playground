@@ -325,7 +325,7 @@ document.getElementById('postForm').addEventListener('submit', async (e) => {
     postData.append('type', type);
 
     try {
-        const response = await fetch('https://map-test-xid1.onrender.com/api/posts', {
+        const response = await fetch('https://map-test-playground.onrender.com/api/posts', {
             method: 'POST',
             body: postData,
         });
