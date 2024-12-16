@@ -29,11 +29,11 @@ cloudinary.config({
 
 // Set up static folder for images
 // Replace with public URL for production
-const publicUrl = process.env.PUBLIC_URL || 'https://map-test-xid1.onrender.com'; // Set your public URL here
+const publicUrl = process.env.PUBLIC_URL || 'https://map-test-playground.onrender.com'; // Set your public URL here
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB setup
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://mduduzindlovu02:maqGSNqbUEhh6KFJ@notesmanagerv2.1gdnh.mongodb.net/?';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://mduduzindlovu02:oSvXSgXEkH5qI8wM@map-test-play.h2lzb.mongodb.net/?retryWrites=true&w=majority&appName=map-test-play';
 mongoose.connect(mongoURI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 

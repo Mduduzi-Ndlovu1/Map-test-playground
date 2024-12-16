@@ -177,7 +177,7 @@ document.getElementById('viewModal').addEventListener('click', function (event) 
 // Fetch posts from backend
 async function fetchPosts() {
     try {
-      const response = await fetch('https://map-test-xid1.onrender.com/api/posts');  // Updated URL
+      const response = await fetch('https://map-test-playground.onrender.com/api/posts');  // Updated URL
       const posts = await response.json();
       
       // Filter posts to ensure each has valid latitude and longitude
@@ -237,7 +237,7 @@ function displayPosts(posts) {
 async function openViewPostModal(postId) {
     currentPostId = postId;
 
-    const response = await fetch(`https://map-test-xid1.onrender.com/api/posts/${postId}`);  // Updated URL
+    const response = await fetch(`https://map-test-playground.onrender.com/api/posts/${postId}`);  // Updated URL
     const post = await response.json();
 
     document.getElementById('viewModal-overlay').classList.add('active');
@@ -274,7 +274,7 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
         return;
     }
 
-    const response = await fetch(`https://map-test-xid1.onrender.com/api/posts/${currentPostId}/comments`, {  // Updated URL
+    const response = await fetch(`https://map-test-playground.onrender.com/api/posts/${currentPostId}/comments`, {  // Updated URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
