@@ -1179,3 +1179,25 @@ border-radius: 10px;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust image sizes for Mobile S */
   }
 }
+
+/* Style the search input and button */
+#search-container {
+  position: absolute;
+  top: 260px;
+  left: 20px;
+  z-index: 100;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+#search-button {
+  padding: 5px 10px;
+  cursor: pointer;
+}

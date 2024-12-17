@@ -12,6 +12,43 @@ let darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/
     attribution: '&copy; OpenStreetMap contributors'
 });
 
+// Show the search input when the search icon is clicked
+document.getElementById('search-icon').addEventListener('click', function() {
+  const searchContainer = document.getElementById('search-container');
+  searchContainer.classList.toggle('hidden');  // Toggle visibility of search input
+});
+
+// Perform search and move the map to the specified location
+document.getElementById('search-button').addEventListener('click', function() {
+  const location = document.getElementById('search-input').value;
+  if (location) {
+    // Use the geocoding API to get the coordinates for the location
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${location}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          const lat = parseFloat(data[0].lat);
+          const lon = parseFloat(data[0].lon);
+          
+          // Move the map to the new location
+          map.setView([lat, lon], 13);  // You can adjust zoom level here as needed
+          
+          // Optionally, add a marker to indicate the searched location
+          L.marker([lat, lon]).addTo(map)
+            .bindPopup(`<b>${location}</b>`)
+            .openPopup();
+        } else {
+          alert('Location not found.');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching location data:', error);
+      });
+  } else {
+    alert('Please enter a location.');
+  }
+});
+
 // Add the default light layer
 lightLayer.addTo(map);
 
