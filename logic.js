@@ -42,7 +42,7 @@ document.getElementById('search-button').addEventListener('click', function() {
           const lon = parseFloat(data[0].lon);
           
           // Move the map to the new location
-          map.setView([lat, lon], 13);  // Adjust zoom level as needed
+          map.setView([lat, lon], 15);  // Adjust zoom level as needed
           
           // Fade out the search container after the search is complete
           const searchContainer = document.getElementById('search-container');
