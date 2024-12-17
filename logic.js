@@ -181,12 +181,17 @@ async function fetchPosts() {
       const posts = await response.json();
       console.log(posts)
       // Filter posts to ensure each has valid latitude and longitude
-      const validPosts = Array.isArray(posts) ? posts.filter(post => typeof post.latitude === 'number' && typeof post.longitude === 'number') : [];      
-      displayPosts(validPosts);
-      console.log('Fetched posts:', validPosts);
+      // Ensure posts is an array
+      const validPosts = Array.isArray(posts) ? posts.filter(post => typeof post.latitude === 'number' && typeof post.longitude === 'number') : [];
+
+      if (validPosts.length > 0) {
+      console.log('Valid posts:', validPosts);
+      } else {
+      console.log('No valid posts found or posts is not an array');
+      }
     } catch (error) {
       console.error('Error fetching posts:', error);
-    }
+  }
 }
 
 // Display posts on the map
