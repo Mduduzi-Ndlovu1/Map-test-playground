@@ -11,6 +11,50 @@
 <! - - - - loader section - - - - >
 <style>
 
+/* Button Styles */
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+/* Loading state styles */
+.button:active {
+    background-color: #3e8e41;
+}
+
+.button.loading {
+    background-color: #f0f0f0;
+    color: #bbb;
+    pointer-events: none;
+}
+
+/* Spinner inside the button */
+.button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #bbb;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* Style for the loader */
 .loader {
@@ -39,6 +83,18 @@ z-index: 10000000;
     </div>
 
 <script>
+document.getElementById('loadingButton').addEventListener('click', function() {
+    this.classList.add('loading');
+    // Simulate a delay (e.g., an API call or process)
+    setTimeout(() => {
+        this.classList.remove('loading');  // Remove loading state after some time
+        this.textContent = 'Submitted';    // Change text after loading
+    }, 3000); // 3 seconds delay
+});
+
+
+
+
 // Wait for 5 seconds, then hide the loader and show the content
 window.onload = function () {
     setTimeout(function () {
