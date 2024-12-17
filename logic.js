@@ -179,7 +179,7 @@ async function fetchPosts() {
     try {
       const response = await fetch('https://map-test-playground.onrender.com/api/posts');  // Updated URL
       const posts = await response.json();
-      
+      console.log(posts)
       // Filter posts to ensure each has valid latitude and longitude
       const validPosts = posts.filter(post => typeof post.latitude === 'number' && typeof post.longitude === 'number');
       
