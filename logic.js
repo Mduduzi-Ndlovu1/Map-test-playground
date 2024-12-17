@@ -174,25 +174,6 @@ document.getElementById('viewModal').addEventListener('click', function (event) 
 });
 
 
-// Fetch posts from backend
-async function fetchPosts() {
-    try {
-      const response = await fetch('https://map-test-playground.onrender.com/api/posts');  // Updated URL
-      const posts = await response.json();
-      console.log(posts)
-      // Filter posts to ensure each has valid latitude and longitude
-      // Ensure posts is an array
-      const validPosts = Array.isArray(posts) ? posts.filter(post => typeof post.latitude === 'number' && typeof post.longitude === 'number') : [];
-
-      if (validPosts.length > 0) {
-      console.log('Valid posts:', validPosts);
-      } else {
-      console.log('No valid posts found or posts is not an array');
-      }
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-  }
-}
 
 // Display posts on the map
 function displayPosts(posts) {
@@ -377,6 +358,22 @@ document.getElementById('viewModal').addEventListener('click', function (event) 
 });
 
 // Initial fetch of posts
+
+// Fetch posts from backend
+async function fetchPosts() {
+  try {
+    const response = await fetch('https://map-test-playground.onrender.com/api/posts');  // Updated URL
+    const posts = await response.json();
+    
+    // Filter posts to ensure each has valid latitude and longitude
+    const validPosts = posts.filter(post => typeof post.latitude === 'number' && typeof post.longitude === 'number');
+    
+    displayPosts(validPosts);
+    console.log('Fetched posts:', validPosts);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+  }
+}
 fetchPosts();
 
 
