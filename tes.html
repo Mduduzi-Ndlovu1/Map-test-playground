@@ -1,3 +1,68 @@
+<style>
+/* Style for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+/* Style for the loader */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hide content initially */
+.hidden {
+    display: none;
+}
+
+/* Style for the main content */
+#content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="loader.gif" alt="Loading...">
+    </div>
+
+<script>
+// Wait for 5 seconds, then hide the loader and show the content
+window.onload = function () {
+    setTimeout(function () {
+        // Hide the loader
+        document.getElementById("loader").style.display = "none";
+        // Show the content
+        document.getElementById("content").style.display = "block";
+    }, 5000); // 5 seconds delay
+};
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
