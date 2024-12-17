@@ -15,10 +15,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: 'https://1pulse-playground.netlify.app', 
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
-})); 
+  origin: ['http://127.0.0.1:5500', 'https://1pulse-playground.netlify.app'], // Add multiple allowed origins
+  methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
+  allowedHeaders: 'Content-Type,Authorization',
+}));
+
+app.get('/api/posts', (req, res) => {
+  res.json({ message: 'CORS configured correctly' });
+});
+
+app.listen(3000, () => console.log('Server running on port 3000')); 
 
 // Set up Cloudinary configuration
 cloudinary.config({
