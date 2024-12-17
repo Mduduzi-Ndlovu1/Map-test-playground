@@ -15,10 +15,21 @@ let darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/
 // Show the search input when the search icon is clicked
 document.getElementById('search-icon').addEventListener('click', function() {
   const searchContainer = document.getElementById('search-container');
-  searchContainer.classList.toggle('hidden');  // Toggle visibility of search input
+  
+  // Toggle the 'hidden' class to either show or hide the search container
+  searchContainer.classList.toggle('hidden');
+  
+  // Ensure the search container fades in from the right
+  if (!searchContainer.classList.contains('hidden')) {
+    searchContainer.style.transform = 'translateX(0)';
+    searchContainer.style.opacity = '1';
+  } else {
+    searchContainer.style.transform = 'translateX(100%)';
+    searchContainer.style.opacity = '0';
+  }
 });
 
-// Perform search and move the map to the specified location
+// Perform search and move the map to the specified location when the search button is clicked
 document.getElementById('search-button').addEventListener('click', function() {
   const location = document.getElementById('search-input').value;
   if (location) {
@@ -31,12 +42,15 @@ document.getElementById('search-button').addEventListener('click', function() {
           const lon = parseFloat(data[0].lon);
           
           // Move the map to the new location
-          map.setView([lat, lon], 13);  // You can adjust zoom level here as needed
+          map.setView([lat, lon], 13);  // Adjust zoom level as needed
           
-          // Optionally, add a marker to indicate the searched location
-          L.marker([lat, lon]).addTo(map)
-            .bindPopup(`<b>${location}</b>`)
-            .openPopup();
+          // Fade out the search container after the search is complete
+          const searchContainer = document.getElementById('search-container');
+          searchContainer.style.transform = 'translateX(100%)';
+          searchContainer.style.opacity = '0';
+          setTimeout(() => {
+            searchContainer.classList.add('hidden');  // Hide it after the fade out animation completes
+          }, 500);  // Matches the transition duration
         } else {
           alert('Location not found.');
         }
@@ -48,6 +62,17 @@ document.getElementById('search-button').addEventListener('click', function() {
     alert('Please enter a location.');
   }
 });
+
+// Optionally, hide the search input when clicking outside of the container
+document.addEventListener('click', function(event) {
+  const searchContainer = document.getElementById('search-container');
+  if (!searchContainer.contains(event.target) && !document.getElementById('search-icon').contains(event.target)) {
+    searchContainer.classList.add('hidden');
+    searchContainer.style.transform = 'translateX(100%)';
+    searchContainer.style.opacity = '0';
+  }
+});
+
 
 // Add the default light layer
 lightLayer.addTo(map);
