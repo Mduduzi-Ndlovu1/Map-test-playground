@@ -188,7 +188,7 @@ async function fetchPosts() {
     } catch (error) {
       console.error('Error fetching posts:', error);
     }
-  }
+}
 
 // Display posts on the map
 function displayPosts(posts) {
