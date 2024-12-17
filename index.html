@@ -8,6 +8,50 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<! - - - - loader section - - - - >
+<style>
+
+
+/* Style for the loader */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+background-color: white;
+z-index: 10000000;
+}
+
+/* Hide content initially */
+.hidden {
+    display: none;
+}
+
+
+</style>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="https://cdn.dribbble.com/users/2973561/screenshots/5757826/media/c5083407af44c0753602fa3e7b025ba7.gif" alt="Loading...">
+    </div>
+
+<script>
+// Wait for 5 seconds, then hide the loader and show the content
+window.onload = function () {
+    setTimeout(function () {
+        // Hide the loader
+        document.getElementById("loader").style.display = "none";
+        // Show the content
+        document.getElementById("content").style.display = "block";
+    }, 5000); // 5 seconds delay
+};
+
+</script>
+
+<! - - - - - end of section - - - - >
   <style>
     body.dark-mode {
       background-color: #2b2b2b;
