@@ -20,9 +20,6 @@ app.use(cors({
   allowedHeaders: 'Content-Type,Authorization',
 }));
 
-app.get('/api/posts', (req, res) => {
-  res.json({ message: 'CORS configured correctly' });
-});
 
 app.listen(3000, () => console.log('Server running on port 3000')); 
 
