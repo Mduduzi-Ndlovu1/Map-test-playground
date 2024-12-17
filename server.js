@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: ['http://127.0.0.1:5500', 'https://1pulse-playground.netlify.app'], // Add multiple allowed origins
+  origin: ['https://1pulse-playground.netlify.app'], // Add multiple allowed origins
   methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
   allowedHeaders: 'Content-Type,Authorization',
 }));
