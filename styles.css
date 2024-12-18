@@ -470,7 +470,8 @@ body, html {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  width: 90%;
+  width: 60%;
+  height: 75%;
   max-width: 600px;
   z-index: 1001;
   opacity: 0;
@@ -552,11 +553,71 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Responsive Design for Tablets and Larger Devices */
-@media (min-width: 600px) {
+/* Responsive Design for Extra Small Devices (320px to 375px) */
+@media (max-width: 375px) {
   .modal {
+    width: 65%; /* Take up most of the screen */
+    height: 80%; /* Ensure it fits vertically */
+    max-height: 50%; /* Limit the height */
+    left: 38%; /* Center horizontally */
+    padding: 15px;
+    overflow-y: auto; /* Scroll for overflow */
+    box-sizing: border-box;
+    top: 40%;
+  }
+
+  .modal h3 {
+    font-size: 18px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  button[type="submit"] {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive Design for Small Devices (375px to 600px) */
+@media (min-width: 375px) and (max-width: 600px) {
+  .modal {
+    width: 70%; 
+    height: 60%;
+    left: 37%;
+    max-height: 75%;
+    padding: 18px;
+    overflow-y: auto; /* Scroll for overflow */
+    box-sizing: border-box;
+  }
+
+  .modal h3 {
+    font-size: 19px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  button[type="submit"] {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design for Tablets and Larger Devices */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .modal {
+    overflow-y: auto;
+    left: 40%;
+    height: 50%; /* Ensure it fits vertically */
+    top: 40%;
     width: 70%;
-    padding: 30px;
   }
 
   .modal h3 {
@@ -598,32 +659,31 @@ button[type="submit"]:hover {
   }
 }
 
-/* Mobile Specific: Ensure the modal takes up 70% of the screen */
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
   .modal {
-    width: 70%; /* Modal width on mobile */
-    height: 70%; /* Ensure it fills 70% of the screen height */
-    max-height: 70%; /* Limit the height */
-    padding: 20px; /* Maintain padding */
-    overflow-y: auto; /* Enable scroll if content exceeds */
-    box-sizing: border-box; /* Include padding in height */
+    width: 50%;
+    height: 50%;
+    left: 40%;
+    top: 40%;
+    padding: 40px;
   }
 
   .modal h3 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .form-field input,
   .form-field textarea {
-    padding: 10px;
-    font-size: 0.9rem;
+    padding: 16px;
+    font-size: 1.2rem;
   }
 
   button[type="submit"] {
-    padding: 10px 18px;
-    font-size: 0.9rem;
+    padding: 16px 24px;
+    font-size: 1.2rem;
   }
 }
+
 
 
 #gyroscope {
