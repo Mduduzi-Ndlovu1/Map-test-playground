@@ -322,6 +322,29 @@ body, html {
     z-index: 1;
 }
 
+/* Extra small screens (375px) */
+@media (max-width: 425px) {
+  #map {
+      width: 120%;
+      height: 120vh; /* Adjust height for compact layout */
+  }
+}
+
+@media (max-width: 375px) {
+  #map {
+      width: 120%;
+      height: 120vh; /* Adjust height for compact layout */
+  }
+}
+
+/* Ultra-small screens (320px) */
+@media (max-width: 320px) {
+  #map {
+    width: 120%;
+    height: 120vh; /* Adjust height for compact layout */
+}
+}
+
 /* Hero Carousel */
 .hero-carousel {
     position: relative;
@@ -1164,45 +1187,48 @@ border-radius: 10px;
   }
 }
 
-/* Search Icon */
+/* Default styles for the search icon */
 .search-icon {
   position: absolute;
-  top: 90px;  /* Adjust based on the height of your navigation bar */
-  right: 20px;  /* Adjust positioning from the left edge */
+  padding-top: 2rem;
+  top: 90px; /* Adjust based on navigation bar height */
+  right: 20px;
+  transform: translateX(-100%);
   cursor: pointer;
-  z-index: 15;  /* Ensures the icon is above other elements */
+  z-index: 15;
 }
 
-/* Search Input Container */
+/* Default styles for the search container */
 #search-container {
   position: absolute;
-  top: 90px;  /* Adjust to position the search bar below the nav */
-  right: 50px;  /* Position from the left */
-  transform: translateX(100%);  /* Start off the screen to the right */
-  opacity: 0;  /* Initially invisible */
+  padding-top: 2rem;
+  padding-right: 2rem;
+  top: 90px; /* Adjust to position below nav */
+  right: 50px;
+  opacity: 0;
   display: flex;
   gap: 10px;
-  z-index: 5;  /* To be visible above other elements */
-  transition: transform 0.5s ease, opacity 0.5s ease;  /* Smooth transition for the sliding effect */
+  z-index: 5;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-/* Hidden Class */
+/* Hidden class */
 .hidden {
-  transform: translateX(100%);  /* Slide out to the right */
-  opacity: 0;  /* Fade out */
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-/* Style for the input */
+/* Default styles for the input */
 #search-input {
   padding: 8px;
   margin-right: -8px;
   font-size: 16px;
-  width: 250px;  /* Adjust width as needed */
+  width: 250px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* Style for the search button */
+/* Default styles for the search button */
 #search-button {
   padding: 8px 15px;
   font-size: 16px;
@@ -1218,6 +1244,118 @@ border-radius: 10px;
   background-color: #45a049;
 }
 
+/* Placeholder styling */
 #search-input::placeholder {
-  font-size: 0.8rem;  /* Adjust the size as needed */
+  font-size: 0.8rem;
+}
+
+/* Medium screens (tablets, 768px to 1024px) */
+@media (max-width: 1024px) {
+  .search-icon {
+    top: 80px; /* Adjust positioning */
+    right: 15px; /* Adjust for tablets */
+  }
+
+  #search-container {
+    top: 80px;
+    right: 40px;
+    gap: 8px; /* Adjust spacing */
+  }
+
+  #search-input {
+    font-size: 15px;
+    width: 220px; /* Adjust width */
+  }
+
+  #search-button {
+    padding: 7px 12px;
+    font-size: 15px;
+  }
+
+  #search-input::placeholder {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small screens (mobile devices, up to 768px) */
+@media (max-width: 768px) {
+  .search-icon {
+    top: 70px;
+    right: 10px;
+  }
+
+  #search-container {
+    top: 70px;
+    right: 30px;
+    gap: 6px;
+  }
+
+  #search-input {
+    font-size: 14px;
+    width: 180px;
+  }
+
+  #search-button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  #search-input::placeholder {
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra-small screens (375px to 320px) */
+@media (max-width: 375px) {
+  .search-icon {
+    top: 60px;
+    right: 8px;
+  }
+
+  #search-container {
+    top: 60px;
+    right: 20px;
+    gap: 4px;
+  }
+
+  #search-input {
+    font-size: 13px;
+    width: 150px;
+  }
+
+  #search-button {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+
+  #search-input::placeholder {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-icon {
+    top: 55px;
+    right: 5px;
+  }
+
+  #search-container {
+    top: 55px;
+    right: 15px;
+    gap: 2px;
+  }
+
+  #search-input {
+    font-size: 12px;
+    width: 120px;
+  }
+
+  #search-button {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+
+  #search-input::placeholder {
+    font-size: 0.6rem;
+  }
 }
